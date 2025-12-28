@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="FarmGame/FarmGame.vcxproj" Id="39ef8a6c-9702-415a-8478-95e7e9818725" />
+</Solution>
