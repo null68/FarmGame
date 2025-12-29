@@ -11,6 +11,8 @@ namespace Engine {
 			bool ShouldClose() const;
 			void PollEvents() const;
 			void SwapBuffers() const;
+
+			GLFWwindow* GetNativeWindow() const { return m_Window; }
 		private:
 			int m_Width;
 			int m_Height;

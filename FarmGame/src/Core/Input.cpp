@@ -1,0 +1,21 @@
+#include "Input.h"
+
+namespace Engine {
+	Input::Input(GLFWwindow* window)
+		: m_Window(window) {}
+	Input::~Input() {
+		m_Window = nullptr;
+	}
+	bool Input::IsKeyPressed(int keycode) {
+		return glfwGetKey(m_Window, keycode) == GLFW_PRESS;
+	}
+	bool Input::IsMouseButtonPressed(int button) {
+		return glfwGetMouseButton(m_Window, button) == GLFW_PRESS;
+	}
+	void Input::GetMousePosition(double& xpos, double& ypos) {
+		glfwGetCursorPos(m_Window, &xpos, &ypos);
+	}
+	void Input::SetMousePosition(double xpos, double ypos) {
+		glfwSetCursorPos(m_Window, xpos, ypos);
+	}
+}

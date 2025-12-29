@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Window.h"
 #include "Time.h"
+#include "Input.h"
 
 namespace Engine {
 	class Application {
@@ -13,6 +14,7 @@ namespace Engine {
 		private:
 			// dodat unique_ptr's za window, renderer, input manager, scene manager, itd.
 			std::unique_ptr<Window> Window;
+			std::unique_ptr<Input> Input;
 	};
 }
 
