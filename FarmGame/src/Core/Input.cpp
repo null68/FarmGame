@@ -2,7 +2,8 @@
 
 namespace Engine {
 	Input::Input(GLFWwindow* window)
-		: m_Window(window) {}
+		: m_Window(window) {
+	}
 	Input::~Input() {
 		m_Window = nullptr;
 	}
@@ -17,5 +18,8 @@ namespace Engine {
 	}
 	void Input::SetMousePosition(double xpos, double ypos) {
 		glfwSetCursorPos(m_Window, xpos, ypos);
+	}
+	void Input::SetMouseVisible(bool visible) {
+		glfwSetInputMode(m_Window, GLFW_CURSOR, visible ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_HIDDEN);
 	}
 }
