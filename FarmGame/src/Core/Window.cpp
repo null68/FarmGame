@@ -4,18 +4,28 @@
 namespace Engine {
 	Window::Window(int width, int height, const char* title)
 		: m_Width(width), m_Height(height), m_Title(title) {
+
 		if (!glfwInit()) {
 			throw std::runtime_error("Failed to initialize GLFW"); // dok ne skontam sta cu drugo ma da i ovo je ok
 		}
 
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
-		
-		if(!m_Window) {
+
+		if (!m_Window) {
 			glfwTerminate();
 			throw std::runtime_error("Failed to create GLFW window"); // isto tako
 		}
 
 		glfwMakeContextCurrent(m_Window);
+
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+			throw std::runtime_error("Failed to initialize GLAD"); // i ovo
+		}
+
 	}
 
 	Window::~Window() {

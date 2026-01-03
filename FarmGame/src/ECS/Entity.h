@@ -5,6 +5,6 @@ namespace Engine {
 	public:
 		Entity() = default;
 		virtual ~Entity() = default;
-		void Update();
+		virtual void Update() {}
 	};
 }

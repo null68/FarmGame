@@ -4,10 +4,10 @@
 
 namespace Engine {
 	class Time {
-		public:
-			static float DeltaTime();
-			static void Update();
-		private:
-			static float s_DeltaTime;
+	public:
+		static float DeltaTime();
+		static void Update();
+	private:
+		static float s_DeltaTime;
 	};
 }

@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include <unordered_set>
 
 #include "Entity.h"
 
@@ -16,6 +15,6 @@ namespace Engine {
 		void DestroyEntity(Entity* entity);
 		void Update(float deltaTime);
 	private:
-		std::unordered_set<Entity*> entities;
+		std::vector<Entity*> entities;
 	};
 }

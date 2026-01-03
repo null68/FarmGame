@@ -6,14 +6,18 @@ namespace Engine {
 	EntityManager::EntityManager() {}
 	Entity* EntityManager::CreateEntity() {
 		Entity* entity = new Entity();
-		entities.insert(entity);
+		entities.push_back(entity);
 		return entity;
 	}
 	void EntityManager::DestroyEntity(Entity* entity) {
-		// TODO: Properly handle component cleanup (nejla zove)
+		std::vector<Entity*>::iterator result = std::find(entities.begin(), entities.end(), entity);
+		if (result != entities.end()) {
+			entities.erase(result);
+			delete* result;
+		}
 	}
 	void EntityManager::Update(float deltaTime) {
-		for (auto& entity : entities) {
+		for (Entity* entity : entities) {
 			entity->Update();
 		}
 	}
