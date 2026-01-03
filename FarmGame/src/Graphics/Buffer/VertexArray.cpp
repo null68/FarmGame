@@ -1,6 +1,6 @@
 #include <glad/glad.h>
 #include "VertexArray.h"
-#include "Vertex.h"
+#include "../Vertex.h"
 
 namespace Engine {
 	VertexArray::VertexArray() {
