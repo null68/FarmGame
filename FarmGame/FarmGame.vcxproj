@@ -147,6 +147,8 @@
     <ClCompile Include="src\Graphics\Buffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Graphics\Buffer\VertexArray.cpp" />
     <ClCompile Include="src\Graphics\Buffer\VertexBuffer.cpp" />
+    <ClCompile Include="src\Graphics\Shader\ShaderProgram.cpp" />
+    <ClCompile Include="src\Graphics\Shader\ShaderStorage.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Vendor\glad\glad.c" />
   </ItemGroup>
@@ -160,7 +162,9 @@
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\ECS\EntityManager.h" />
     <ClInclude Include="src\Graphics\Buffer\IndexBuffer.h" />
-    <ClInclude Include="src\Graphics\Buffer\Vertex.h" />
+    <ClInclude Include="src\Graphics\Shader\ShaderProgram.h" />
+    <ClInclude Include="src\Graphics\Shader\ShaderStorage.h" />
+    <ClInclude Include="src\Graphics\Vertex.h" />
     <ClInclude Include="src\Graphics\Buffer\VertexArray.h" />
     <ClInclude Include="src\Graphics\Buffer\VertexBuffer.h" />
   </ItemGroup>
