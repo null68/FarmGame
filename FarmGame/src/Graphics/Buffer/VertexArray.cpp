@@ -21,8 +21,6 @@ namespace Engine {
 		// tex coords
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoord));
 		glEnableVertexAttribArray(2);
-
-		Unbind();
 	}
 	void VertexArray::Bind() const {
 		glBindVertexArray(m_Id);
