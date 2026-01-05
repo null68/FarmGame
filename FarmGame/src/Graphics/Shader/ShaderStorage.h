@@ -9,7 +9,7 @@ namespace Engine {
 	public:
 		static ShaderStorage& GetInstance();
 
-		std::shared_ptr<ShaderProgram> Load(std::string name, std::string vertexShaderName, std::string fragmentShaderName);
+		std::shared_ptr<ShaderProgram> Load(std::string name, const char* vertexShaderFilePath, const char* fragmentShaderFilePath);
 		std::shared_ptr<ShaderProgram> Get(std::string name);
 		bool Exists(const std::string& name) const;
 	private:
