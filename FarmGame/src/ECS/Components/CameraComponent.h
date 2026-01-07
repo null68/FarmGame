@@ -1,9 +1,27 @@
 #pragma once
 
+#include <glm.hpp>
+#include <gtc/matrix_transform.hpp>
+
+#include "../Component.h"
+
 namespace Engine {
-	struct CameraComponent {
-		float FOV = 45.0f;
-		float NearClip = 0.1f;
-		float FarClip = 100.0f;
+	class CameraComponent : public Component {
+	public:
+		glm::vec3 Position{ 0.0f, 0.0f, 0.0f };
+		glm::vec3 Forward{ 0.0f, 0.0f, -1.0f };
+		glm::vec3 Up{ 0.0f, 1.0f, 0.0f };
+		float FOV = 60.0f;
+		float AspectRatio = 16.0f / 9.0f;
+		float NearPlane = 0.1f;
+		float FarPlane = 1000.0f;
+
+		glm::mat4 GetViewMatrix() const {
+			return glm::lookAt(Position, Position + Forward, Up);
+		}
+
+		glm::mat4 GetProjectionMatrix() const {
+			return glm::perspective(glm::radians(FOV), AspectRatio, NearPlane, FarPlane);
+		}
 	};
 }

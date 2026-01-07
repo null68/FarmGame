@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EntityManager.h"
+#include "Components/ScriptComponent.h"
 
 namespace Engine {
 	EntityManager::EntityManager() {}
@@ -12,13 +13,16 @@ namespace Engine {
 	void EntityManager::DestroyEntity(Entity* entity) {
 		std::vector<Entity*>::iterator result = std::find(entities.begin(), entities.end(), entity);
 		if (result != entities.end()) {
+			// TODO: ako ima ScriptComponent pozovi OnDestroy
+			delete *result;
 			entities.erase(result);
-			delete* result;
 		}
 	}
 	void EntityManager::Update(float deltaTime) {
 		for (Entity* entity : entities) {
-			entity->Update();
+			if (entity->HasComponent<ScriptComponent>()) {
+				entity->GetComponent<ScriptComponent>()->OnUpdate(deltaTime);
+			}
 		}
 	}
 
