@@ -19,7 +19,9 @@ namespace Engine {
 			component->entity = this;
 			T& componentRef = *component;
 
-			// TODO: dodati ako je component base of ScriptComponent ako jest pozovi OnCreate, ja mislim da moze if constexpr zbog optimizacije
+			if constexpr (std::is_base_of<ScriptComponent, T>::value) {
+				componentRef.OnCreate();
+			}
 
 			m_Components[std::type_index(typeid(T))] = componentRef;
 			return componentRef;

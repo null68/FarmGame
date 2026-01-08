@@ -13,7 +13,7 @@ namespace Engine {
 	void EntityManager::DestroyEntity(Entity* entity) {
 		std::vector<Entity*>::iterator result = std::find(entities.begin(), entities.end(), entity);
 		if (result != entities.end()) {
-			// TODO: ako ima ScriptComponent pozovi OnDestroy
+			(*result)->HasComponent<ScriptComponent>() ? (*result)->GetComponent<ScriptComponent>()->OnDestroy() : void();
 			delete *result;
 			entities.erase(result);
 		}
