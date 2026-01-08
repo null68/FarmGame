@@ -20,7 +20,7 @@ namespace Engine {
 			return nullptr;
 		}
 		char* shaderCodeCStr = new char[shaderCode.size() + 1];
-		std::strcpy(shaderCodeCStr, shaderCode.c_str());
+		strcpy_s(shaderCodeCStr, shaderCode.size() + 1, shaderCode.c_str());
 		return shaderCodeCStr;
 	}
 }

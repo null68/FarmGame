@@ -1,11 +1,10 @@
 #pragma once
 
-#include "Entity.h"
-
 namespace Engine {
+	class Entity;
 	class Component {
 	public:
-		Entity* entity = nullptr;
+		Entity *entity = nullptr;
 		virtual ~Component() = default;
 	};
 }

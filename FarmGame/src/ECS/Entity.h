@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Component.h"
+#include "Components/ScriptComponent.h"
 
 #include <memory>
 #include <unordered_map>
@@ -9,6 +9,7 @@
 
 // usage example: entity.AddComponent<TransformComponent>(params...); entity.GetComponent<TransformComponent>(); entity.HasComponent<TransformComponent>(); entity.getComponents<TransformComponent, MeshComponent>();
 namespace Engine {
+	class Component;
 	class Entity {
 	public:
 		Entity() = default;
