@@ -5,8 +5,9 @@
 #include <memory>
 #include <unordered_map>
 #include <typeindex>
+#include <tuple>
 
-// usage example: entity.AddComponent<TransformComponent>(params...); entity.GetComponent<TransformComponent>(); entity.HasComponent<TransformComponent>();
+// usage example: entity.AddComponent<TransformComponent>(params...); entity.GetComponent<TransformComponent>(); entity.HasComponent<TransformComponent>(); entity.getComponents<TransformComponent, MeshComponent>();
 namespace Engine {
 	class Entity {
 	public:
@@ -34,6 +35,11 @@ namespace Engine {
 				return static_cast<T*>(componentIt->second);
 			}
 			return nullptr;
+		}
+
+		template <typename... T>
+		std::tuple<T*...> GetComponents() {
+			return std::make_tuple(GetComponent<T>()...);
 		}
 
 		template<typename T>
