@@ -14,6 +14,7 @@ namespace Engine {
 		Entity* CreateEntity();
 		void DestroyEntity(Entity* entity);
 		void Update(float deltaTime);
+		void Clear();
 	private:
 		std::vector<Entity*> entities;
 	};

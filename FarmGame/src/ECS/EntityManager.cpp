@@ -5,6 +5,9 @@
 
 namespace Engine {
 	EntityManager::EntityManager() {}
+	EntityManager::~EntityManager() {
+		Clear();
+	}
 	Entity* EntityManager::CreateEntity() {
 		Entity* entity = new Entity();
 		entities.push_back(entity);
@@ -25,5 +28,10 @@ namespace Engine {
 			}
 		}
 	}
-
+	void EntityManager::Clear() {
+		for (Entity* entity : entities) {
+			DestroyEntity(entity);
+		}
+		entities.clear();
+	}
 }

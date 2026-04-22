@@ -24,7 +24,7 @@ namespace Engine {
 			if constexpr (std::is_base_of<ScriptComponent, T>::value) {
 				componentRef.OnCreate();
 			}
-
+			
 			m_Components[std::type_index(typeid(T))] = componentRef;
 			return componentRef;
 		}
