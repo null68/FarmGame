@@ -17,6 +17,12 @@ namespace Engine {
 		// T je Component type, Args parametri kontruktora - ako postoje
 		template<typename T, typename... Args>
 		T& AddComponent(Args&&... args) {
+			static_assert(std::is_base_of<Component, T>::value, "T must be a Component");
+
+			if (HasComponent<T>()) {
+				throw std::runtime_error("Entity already has component of this type");
+			}
+
 			std::unique_ptr<T> component = std::make_unique<T>(std::forward<Args>(args)...);
 			component->entity = this;
 			T& componentRef = *component;
@@ -25,7 +31,7 @@ namespace Engine {
 				componentRef.OnCreate();
 			}
 			
-			m_Components[std::type_index(typeid(T))] = componentRef;
+			m_Components[std::type_index(typeid(T))] = std::move(component);
 			return componentRef;
 		}
 
@@ -33,7 +39,7 @@ namespace Engine {
 		T* GetComponent() {
 			auto componentIt = m_Components.find(std::type_index(typeid(T)));
 			if (componentIt != m_Components.end()) {
-				return static_cast<T*>(componentIt->second);
+				return static_cast<T*>(componentIt->second.get());
 			}
 			return nullptr;
 		}
@@ -47,7 +53,13 @@ namespace Engine {
 		bool HasComponent() const {
 			return m_Components.find(std::type_index(typeid(T))) != m_Components.end();
 		}
+
+		template<typename T>
+		void RemoveComponent() {
+			auto component = std::type_index(typeid(T));
+			m_Components.erase(component);
+		}
 	private:
-		std::unordered_map<std::type_index, Component*> m_Components;
+		std::unordered_map<std::type_index, std::unique_ptr<Component>> m_Components;
 	};
 }
