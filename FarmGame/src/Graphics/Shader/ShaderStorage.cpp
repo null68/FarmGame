@@ -4,7 +4,6 @@
 namespace Engine {
 	ShaderStorage& ShaderStorage::GetInstance()
 	{
-		// cudno ali ovako treba (java dev sam :/)
 		static ShaderStorage instance;
 		return instance;
 	}
