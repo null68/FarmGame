@@ -29,7 +29,8 @@ namespace Engine {
 		}
 	}
 	void EntityManager::Clear() {
-		for (Entity* entity : entities) {
+		std::vector<Entity*> copy = entities;
+		for (Entity* entity : copy) {
 			DestroyEntity(entity);
 		}
 		entities.clear();
