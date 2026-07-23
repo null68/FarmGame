@@ -14,10 +14,12 @@ namespace Engine {
 		~Batch();
 		void Begin();
 		void Submit(const Mesh& mesh, const TransformComponent& transform, const MaterialComponent& material);
-		void End();
-		void Flush();
+		// void End();
+		void Flush(const glm::mat4& view, const glm::mat4& projection);
 
-		bool IsFull() const;
+		// bool IsFull() const;
+
+		bool HasContent() const { return m_Mesh != nullptr && !m_Transforms.empty(); }
 
 		void SetMesh(const Mesh* mesh) { m_Mesh = mesh; }
 		void SetMaterial(const MaterialComponent* material) { m_Material = material; }
@@ -26,10 +28,14 @@ namespace Engine {
 		const MaterialComponent* GetMaterial() const { return m_Material; }
 		inline ShaderProgram* GetShader() const { return m_Shader; }
 	private:
+		void UploadInstanceBuffer();
+
 		ShaderProgram* m_Shader;
 		const Mesh* m_Mesh = nullptr;
 		const MaterialComponent* m_Material = nullptr;
 
 		std::vector<glm::mat4> m_Transforms;
+
+		unsigned int m_InstanceVBO = 0;
 	};
 }
