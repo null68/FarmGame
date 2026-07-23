@@ -107,12 +107,9 @@ namespace Engine {
 		BatchKey key{ shader, &mesh, &material };
 
 		auto it = s_BatchLookup.find(key);
-		Batch* batch = nullptr;
+		Batch* batch = (it != s_BatchLookup.end()) ? it->second : nullptr;
 
-		if (it != s_BatchLookup.end()) {
-			batch = it->second;
-		}
-		else {
+		if (!batch || batch->IsFull()) {
 			auto owned = std::make_unique<Batch>(shader);
 			batch = owned.get();
 			batch->Begin();

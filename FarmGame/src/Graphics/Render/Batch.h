@@ -14,10 +14,10 @@ namespace Engine {
 		~Batch();
 		void Begin();
 		void Submit(const Mesh& mesh, const TransformComponent& transform, const MaterialComponent& material);
-		// void End();
+		void End();
 		void Flush(const glm::mat4& view, const glm::mat4& projection);
 
-		// bool IsFull() const;
+		bool IsFull() const;
 
 		bool HasContent() const { return m_Mesh != nullptr && !m_Transforms.empty(); }
 
@@ -35,6 +35,8 @@ namespace Engine {
 		const MaterialComponent* m_Material = nullptr;
 
 		std::vector<glm::mat4> m_Transforms;
+
+		static constexpr size_t MAX_INSTANCES = 1024;
 
 		unsigned int m_InstanceVBO = 0;
 	};

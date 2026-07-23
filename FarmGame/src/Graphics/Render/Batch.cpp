@@ -36,8 +36,6 @@ namespace Engine {
 		if (!HasContent())
 			return;
 
-		UploadInstanceBuffer();
-
 		m_Shader->Bind();
 		m_Shader->SetUniformMat4f("u_View", view);
 		m_Shader->SetUniformMat4f("u_Projection", projection);
@@ -45,7 +43,7 @@ namespace Engine {
 		m_Material->Bind(*m_Shader);
 
 		m_Mesh->Bind();
-		m_Mesh->ConfigureInstanceBuffer(m_InstanceVBO); 
+		m_Mesh->ConfigureInstanceBuffer(m_InstanceVBO);
 
 		glDrawElementsInstanced(
 			GL_TRIANGLES,
@@ -58,5 +56,15 @@ namespace Engine {
 		m_Transforms.clear();
 	}
 
+	void Batch::End() {
+		if (!HasContent())
+			return;
+
+		UploadInstanceBuffer();
+	}
+
+	bool Batch::IsFull() const {
+		return m_Transforms.size() >= MAX_INSTANCES;
+	}
 
 }
