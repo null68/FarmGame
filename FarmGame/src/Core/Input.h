@@ -14,7 +14,10 @@ namespace Engine
 		void GetMousePosition(double& xpos, double& ypos);
 		void SetMousePosition(double xpos, double ypos);
 		void SetMouseVisible(bool visible);
+
+		static Input* Get() { return s_Instance; }
 	private:
 		GLFWwindow* m_Window;
+		static Input* s_Instance;
 	};
 }

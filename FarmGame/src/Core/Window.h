@@ -14,6 +14,8 @@ namespace Engine {
 		void SwapBuffers() const;
 
 		GLFWwindow* GetNativeWindow() const { return m_Window; }
+		int GetWidth() const { return m_Width; }
+		int GetHeight() const { return m_Height; }
 	private:
 		int m_Width;
 		int m_Height;

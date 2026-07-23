@@ -1,8 +1,11 @@
 #include "Input.h"
 
 namespace Engine {
+	Input* Input::s_Instance = nullptr;
+
 	Input::Input(GLFWwindow* window)
 		: m_Window(window) {
+		s_Instance = this;
 	}
 	Input::~Input() {
 		m_Window = nullptr;

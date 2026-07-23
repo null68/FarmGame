@@ -6,6 +6,7 @@
 
 namespace Engine {
 	class MeshComponent : public Component {
+	public:
 		std::shared_ptr<Mesh> mesh;
 	};
 }
