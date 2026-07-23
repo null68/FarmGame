@@ -63,6 +63,7 @@ Currently targets Windows with Visual Studio. Dependencies are vendored, so no p
 
 ## Roadmap
 
+- [ ] Implement a proper ECS architecture (separate component storage, etc.)
 - [ ] Move gameplay code into a dedicated `Game/` layer, loaded through `SceneManager`
 - [ ] Start implementing actual farming mechanics (crops, tools, inventory, etc.)
 - [ ] Expand the asset pipeline (models, more texture formats)
