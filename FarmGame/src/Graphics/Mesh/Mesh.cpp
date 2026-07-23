@@ -1,4 +1,5 @@
 #include "Mesh.h"
+#include <glad/glad.h>
 
 
 namespace Engine {
@@ -19,6 +20,20 @@ namespace Engine {
 	}
 
     void Mesh::Unbind() const {
+        m_VAO.Unbind();
+    }
+
+    void Mesh::ConfigureInstanceBuffer(unsigned int instanceVBO) const {
+        m_VAO.Bind();
+        glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
+
+        const size_t vec4Size = sizeof(glm::vec4);
+        for (int i = 0; i < 4; i++) {
+            glEnableVertexAttribArray(3 + i);
+            glVertexAttribPointer(3 + i, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(i * vec4Size));
+            glVertexAttribDivisor(3 + i, 1);
+        }
+
         m_VAO.Unbind();
     }
 }

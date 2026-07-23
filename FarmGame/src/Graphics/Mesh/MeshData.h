@@ -6,6 +6,6 @@
 namespace Engine {
 	struct MeshData {
 		std::vector<Vertex> vertices;
-		std::vector<uint32_t> indices; // mozda prebaciti na size_t?
+		std::vector<uint32_t> indices;
 	};
 }

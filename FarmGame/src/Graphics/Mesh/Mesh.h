@@ -14,6 +14,8 @@ namespace Engine {
 		
 		uint32_t GetIndexCount() const { return m_IndexCount; }
 		uint32_t GetVertexCount() const { return m_VertexCount; }
+
+		void ConfigureInstanceBuffer(unsigned int instanceVBO) const;
 	private:
 		VertexArray m_VAO;
 		VertexBuffer m_VBO;
