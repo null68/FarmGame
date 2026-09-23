@@ -10,7 +10,7 @@ namespace Engine {
 	class EntityManager {
 	public:
 		EntityManager();
-		~EntityManager() = default;
+		~EntityManager();
 		Entity* CreateEntity();
 		void DestroyEntity(Entity* entity);
 		void Update(float deltaTime);

@@ -15,6 +15,9 @@ namespace Engine {
 		
 		static void SetViewportSize(int width, int height);
 
+		static int GetViewportWidth() { return s_ViewportWidth; };
+		static int GetViewportHeight() { return s_ViewportHeight; };
+
 		static void BeginScene(CameraComponent& camera);
 		static void EndScene();
 		static void Submit(const Mesh& mesh, TransformComponent& transform, MaterialComponent& material);

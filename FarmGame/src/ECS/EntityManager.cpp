@@ -23,8 +23,8 @@ namespace Engine {
 	}
 	void EntityManager::Update(float deltaTime) {
 		for (Entity* entity : entities) {
-			if (entity->HasComponent<ScriptComponent>()) {
-				entity->GetComponent<ScriptComponent>()->OnUpdate(deltaTime);
+			for (ScriptComponent* script : entity->GetScripts()) {
+				script->OnUpdate(deltaTime);
 			}
 		}
 	}

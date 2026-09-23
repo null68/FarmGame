@@ -40,6 +40,16 @@ namespace Engine {
 		m_Shader->SetUniformMat4f("u_View", view);
 		m_Shader->SetUniformMat4f("u_Projection", projection);
 
+		m_Shader->SetUniformVec3f(
+			"u_LightDirection",
+			glm::normalize(glm::vec3(-1.0f, -1.0f, -1.0f))
+		);
+
+		m_Shader->SetUniformVec3f(
+			"u_LightColor",
+			glm::vec3(1.0f, 1.0f, 1.0f)
+		);
+
 		m_Material->Bind(*m_Shader);
 
 		m_Mesh->Bind();

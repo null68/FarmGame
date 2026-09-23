@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <typeindex>
 #include <tuple>
+#include <stdexcept>
 
 // usage example: entity.AddComponent<TransformComponent>(params...); entity.GetComponent<TransformComponent>(); entity.HasComponent<TransformComponent>(); entity.getComponents<TransformComponent, MeshComponent>();
 namespace Engine {
@@ -28,9 +29,10 @@ namespace Engine {
 			T& componentRef = *component;
 
 			if constexpr (std::is_base_of<ScriptComponent, T>::value) {
+				m_Scripts.push_back(component.get());
 				componentRef.OnCreate();
 			}
-			
+
 			m_Components[std::type_index(typeid(T))] = std::move(component);
 			return componentRef;
 		}
@@ -59,7 +61,13 @@ namespace Engine {
 			auto component = std::type_index(typeid(T));
 			m_Components.erase(component);
 		}
+
+		std::vector<ScriptComponent*> GetScripts() {
+			return m_Scripts;
+		}
+
 	private:
 		std::unordered_map<std::type_index, std::unique_ptr<Component>> m_Components;
+		std::vector<ScriptComponent*> m_Scripts;
 	};
 }

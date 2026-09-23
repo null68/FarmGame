@@ -33,7 +33,5 @@ namespace Engine {
             glVertexAttribPointer(3 + i, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(i * vec4Size));
             glVertexAttribDivisor(3 + i, 1);
         }
-
-        m_VAO.Unbind();
     }
 }

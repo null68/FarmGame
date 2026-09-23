@@ -40,5 +40,18 @@ namespace Engine {
 			glm::vec3 right = glm::normalize(glm::cross(Forward, worldUp));
 			Up = glm::cross(right, Forward);
 		}
+
+		struct Ray { glm::vec3 origin, direction; };
+
+		Ray ScreenPointToRay(float mouseX, float mouseY, float screenWidth, float screenHeight) const {
+			float ndcX = (2.0f * mouseX) / screenWidth - 1.0f;
+			float ndcY = 1.0f - (2.0f * mouseY) / screenHeight; 
+
+			glm::mat4 invVP = glm::inverse(GetProjectionMatrix() * GetViewMatrix());
+			glm::vec4 nearP = invVP * glm::vec4(ndcX, ndcY, -1.0f, 1.0f); nearP /= nearP.w;
+			glm::vec4 farP = invVP * glm::vec4(ndcX, ndcY, 1.0f, 1.0f); farP /= farP.w;
+
+			return Ray{ glm::vec3(nearP), glm::normalize(glm::vec3(farP - nearP)) };
+		}
 	};
 }

@@ -145,15 +145,21 @@
     <ClCompile Include="src\Core\Time.cpp" />
     <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\ECS\EntityManager.cpp" />
+    <ClCompile Include="src\Game\DemoScene.cpp" />
+    <ClCompile Include="src\Game\FarmGridMesher.cpp" />
     <ClCompile Include="src\Graphics\Buffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Graphics\Buffer\VertexArray.cpp" />
     <ClCompile Include="src\Graphics\Buffer\VertexBuffer.cpp" />
     <ClCompile Include="src\Graphics\Mesh\Mesh.cpp" />
+    <ClCompile Include="src\Graphics\Mesh\Primitives.cpp" />
     <ClCompile Include="src\Graphics\Render\Batch.cpp" />
     <ClCompile Include="src\Graphics\Render\Renderer.cpp" />
     <ClCompile Include="src\Graphics\Shader\ShaderProgram.cpp" />
     <ClCompile Include="src\Graphics\Shader\ShaderStorage.cpp" />
+    <ClCompile Include="src\Graphics\Texture\Texture.cpp" />
+    <ClCompile Include="src\Graphics\Texture\TextureStorage.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Scene\Scene.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Vendor\glad\glad.c" />
     <ClCompile Include="src\Vendor\stb\stb_image.cpp" />
@@ -162,6 +168,7 @@
     <ClInclude Include="src\Assets\AssetManager.h" />
     <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Core\Input.h" />
+    <ClInclude Include="src\Core\Raycast.h" />
     <ClInclude Include="src\Core\Time.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\ECS\Component.h" />
@@ -172,15 +179,23 @@
     <ClInclude Include="src\ECS\Components\TransformComponent.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\ECS\EntityManager.h" />
+    <ClInclude Include="src\Game\DemoScene.h" />
+    <ClInclude Include="src\Game\FarmGrid.h" />
+    <ClInclude Include="src\Game\FarmGridMesher.h" />
+    <ClInclude Include="src\Game\FarmInteractionScript.h" />
+    <ClInclude Include="src\Game\PlayerController.h" />
+    <ClInclude Include="src\Game\SpinScript.h" />
     <ClInclude Include="src\Graphics\Buffer\IndexBuffer.h" />
-    <ClInclude Include="src\Graphics\Material\Material.h" />
-    <ClInclude Include="src\Graphics\Material\Texture.h" />
     <ClInclude Include="src\Graphics\Mesh\Mesh.h" />
     <ClInclude Include="src\Graphics\Mesh\MeshData.h" />
+    <ClInclude Include="src\Graphics\Mesh\Primitives.h" />
     <ClInclude Include="src\Graphics\Render\Batch.h" />
     <ClInclude Include="src\Graphics\Render\Renderer.h" />
+    <ClInclude Include="src\Graphics\Render\RenderQueue.h" />
     <ClInclude Include="src\Graphics\Shader\ShaderProgram.h" />
     <ClInclude Include="src\Graphics\Shader\ShaderStorage.h" />
+    <ClInclude Include="src\Graphics\Texture\Texture.h" />
+    <ClInclude Include="src\Graphics\Texture\TextureStorage.h" />
     <ClInclude Include="src\Graphics\Vertex.h" />
     <ClInclude Include="src\Graphics\Buffer\VertexArray.h" />
     <ClInclude Include="src\Graphics\Buffer\VertexBuffer.h" />
@@ -190,6 +205,8 @@
   <ItemGroup>
     <None Include="assets\shaders\BasicFragmentShader.glsl" />
     <None Include="assets\shaders\BasicVertexShader.glsl" />
+    <None Include="assets\shaders\SkyboxFragmentShader.glsl" />
+    <None Include="assets\shaders\SkyboxVertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
