@@ -78,13 +78,19 @@
     <ClCompile Include="src\Graphics\Texture\TextureStorage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\DemoScene.cpp">
+    <ClCompile Include="src\Audio\AudioClip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\FarmGridMesher.cpp">
+    <ClCompile Include="src\Vendor\miniaudio\miniaudio.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\Mesh\Primitives.cpp">
+    <ClCompile Include="src\Audio\AudioStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\AudioSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\AudioSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,35 +179,21 @@
     <ClInclude Include="src\Graphics\Texture\TextureStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Raycast.h">
+    <ClInclude Include="src\Audio\AudioClip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\DemoScene.h">
+    <ClInclude Include="src\Audio\AudioStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\FarmGrid.h">
+    <ClInclude Include="src\Audio\AudioSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\FarmGridMesher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\FarmInteractionScript.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\PlayerController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Game\SpinScript.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Mesh\Primitives.h">
+    <ClInclude Include="src\Audio\AudioSource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\BasicVertexShader.glsl" />
     <None Include="assets\shaders\BasicFragmentShader.glsl" />
-    <None Include="assets\shaders\SkyboxFragmentShader.glsl" />
-    <None Include="assets\shaders\SkyboxVertexShader.glsl" />
   </ItemGroup>
 </Project>
