@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Application.h"
-#include "../Game/DemoScene.h"
 #include "../Graphics/Render/Renderer.h"
 #include "../Scene/SceneManager.h"
 #include "../ECS/Components/CameraComponent.h"
