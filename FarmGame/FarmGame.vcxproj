@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Animation\AnimationClip.cpp" />
+    <ClCompile Include="src\Animation\Animator.cpp" />
     <ClCompile Include="src\Assets\AssetManager.cpp" />
     <ClCompile Include="src\Audio\AudioClip.cpp" />
     <ClCompile Include="src\Audio\AudioSource.cpp" />
@@ -167,6 +169,8 @@
     <ClCompile Include="src\Vendor\stb\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Animation\AnimationClip.h" />
+    <ClInclude Include="src\Animation\Animator.h" />
     <ClInclude Include="src\Assets\AssetManager.h" />
     <ClInclude Include="src\Audio\AudioClip.h" />
     <ClInclude Include="src\Audio\AudioSource.h" />
@@ -177,6 +181,7 @@
     <ClInclude Include="src\Core\Time.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\ECS\Component.h" />
+    <ClInclude Include="src\ECS\Components\AudioSourceComponent.h" />
     <ClInclude Include="src\ECS\Components\CameraComponent.h" />
     <ClInclude Include="src\ECS\Components\MaterialComponent.h" />
     <ClInclude Include="src\ECS\Components\MeshComponent.h" />
